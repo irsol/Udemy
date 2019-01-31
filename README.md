@@ -1,3 +1,3 @@
 ### Udemy
 
-Here my notes, projects for Udemy Python Bootcamp 3. 
+Here is my repository for the Udemy Python Bootcamp 3 course. 
