@@ -1,9 +1,11 @@
 # Simple check postive or negative numbers
 
 from random import randint
+
 x = randint(-100, 100)
 while x == 0:  # make sure x isn't zero
-    x = randint(-100, 100)         
+    x = randint(-100, 100)
+    
 y = randint(-100, 100)
 while y == 0:  # make sure y isn't zero
     y = randint(-100, 100)
