@@ -1,4 +1,4 @@
-# Simple rock, scissers, paper game.
+# Simple rock, scissors, paper game.
 
 print("Rock...")
 print("Paper...")
