@@ -1,4 +1,4 @@
-# Simple check postive or negative numbers
+# Simple check positive or negative numbers
 
 from random import randint
 
@@ -19,3 +19,5 @@ elif x > 0 and y < 0:
     print("x is positive and y is negative")
 else:
     print("y is positive and x is negative")
+
+
