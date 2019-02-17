@@ -1,3 +1,4 @@
+# Mileage app
 
 print("How many kilometers did you cycle/walk today?")
 kms = input()

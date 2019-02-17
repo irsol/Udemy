@@ -1,9 +1,10 @@
 import random
+# Guessing game with yes/no repeat.
 
 random_number = random.randint(1,10)  # numbers 1-10
 player_guess = None
 
-while player_guess != random_number:
+while True:
     player_guess = input("Guess a number between 1 and 10: ")
     player_guess = int(player_guess)
 
@@ -15,3 +16,11 @@ while player_guess != random_number:
 
     else:
         print(f"{player_guess} You guess it! You won!")
+        play_again = input("Do you want to play again? (y/n)")
+
+        if play_again == "y":
+            random_number = random.randint(1,10)
+
+        else:
+            print("Thank you for playing!")
+            break
