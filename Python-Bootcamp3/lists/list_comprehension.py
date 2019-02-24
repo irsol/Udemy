@@ -72,3 +72,35 @@ with_vowels = "This is Python!"
 "".join(char for char in with_vowels if char not in "aeiouy")
 
 
+# Take first letter in names.
+answer = [person[0] for person in ["Elie", "Tim", "Matt"]]
+
+# Use loops to take first letters in a list.
+answer = []
+for person in ["Elie", "Tim", "Matt"]:
+    answer.append(person[0])
+
+# Find is the intersection of the two lists.
+answer = [val for val in [1, 2, 3, 4] if val in [3, 4, 5, 6]]
+
+# Find is the intersection of the two lists.
+answer = []
+for x in [1,2,3,4]:
+    if x in [3,4,5,6]:
+        answer.append(x)
+
+# Use [::-1] slice is a quick way to reverse a string
+answer2 = [val[::-1].lower() for val in ["Elie", "Tim", "Matt"]]
+
+# or reverse list solution with for statement
+answer2 = []
+for name in ["Elie", "Tim", "Matt"]:
+    answer2.append(name[::-1].lower())
+
+
+# Return all numbers divisible by 12 in range 1-100 (including 100).
+
+answer = [num for num in range(1, 101) if num % 12 == 0]
+
+# Return string without "aeiou" vowels.
+answer = [char for char in "amazing" if char not in "aeiou"]
