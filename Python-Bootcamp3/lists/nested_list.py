@@ -31,4 +31,7 @@ print(board_odd_even)
 answer = [[num for num in range(0, 3)] for val in range(0, 3)]
 print(answer)
 
-#
+# 10*10 nested lists
+
+answer = [[num for num in range(0, 10)] for val in range(0, 10)]
+print(answer)
