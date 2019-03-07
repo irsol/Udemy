@@ -70,4 +70,19 @@ Docker client and Daemon can communicate over an API, network interface and etc.
 
 Docker Daemon and CLI are both written on Golang and open source.
 
-#### 
+#### Docker Community Edition vs Docker Enterprise Edition
+
+*Docker CE* is free and open source, has the same core feautures as Enterprise Edition.
+
+Docker CE has 2 release channels: 
+	1. *Edge* releases are every month
+	2. *Stable* releases are every 3 month
+
+*Docker EE* is integrated, certified, and supported to provide enterprises with the most secure container platform in the industry.
+	- certified images and plugins;
+	- Docker DataCenter;
+	- recieve vulnerability scans results on Docker Images;
+	- official support;
+	- releases are every 3 month, ech release is supported and maintained for entire year;
+
+#### Docker Toolbox vs Docker for Mac
