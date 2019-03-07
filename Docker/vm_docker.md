@@ -1,8 +1,10 @@
 ## Virtual Machines vs Docker Containers
 
 Docker containers aren't VMs. Docker containers use less memory and start faster than virtual machines.
+VMs good in isolating system resources and entire working inviroments, for example if you own webhosting company it's better to use VMs to separate ech customers. Docker isolates individual applications, not entire system.
 
 #### Running apps using a VM on a server:
+Starts in minutes
 
 1. Infrastructure => Laptop, Server running in a data center, virtual private server in a cloud (for example Digital Ocean, Amazon)
 
@@ -17,4 +19,22 @@ Docker containers aren't VMs. Docker containers use less memory and start faster
     - each Guest OS needs CPU and Memory resources as well as a disk space;
     - DB connection library;
     - Rupy, Python and NodeJS packages;
-    - to isolate each apllications you need to run each one inside of his own Guest OS; 
+
+5. To isolate each apllications you need to run each one inside of his own Guest OS
+
+
+#### Docker Containers
+Starts in milliseconds
+
+1. Ifrastructure => Laptop, Server running in a data center, etc.
+
+2. Host Operating System => Mac Os, Windows, Linux
+
+3. Docker Daemon is a service that runs in a background on Host OS and manages everything required to run and 
+interact with Docker Containers
+
+4. BINS/LIBS built-in into special packages Docker Images
+	- Docker Daemon runs this Images
+
+5. Each apps will be manage independently by the Docker Daemon
+	- Docker Daemon communicates directly with Host OS;
