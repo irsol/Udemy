@@ -55,4 +55,19 @@ How Docker works:
 Docker it's a Client <-> Server application. The Daemon is the server (or process), the CLI is one of many clients. There's also a number of third party clients.
 
 #### Client -> Server Visualization 
- 
+
+![How the Client telks to the Server](client_server.png)
+
+1. Client on the left side, this is where we're running various Docker commands. The client could be installed on your laptop running MacOs, Windows or a server running Linux.
+
+2. Docker host is the host that run the Docker daemon. Typically Docker host referred to as the server running Docker daemon.
+
+It’s very simple to configure the Docker client to connect to a remote Docker host. This is one way you’re able to run Docker on MacOS and Windows.
+
+Docker client and Daemon can communicate over an API, network interface and etc. The client and daemon doesn't need to be on the same machine.
+
+3. Registry is a part of the Docker ecosystem. It's not something that's already istalled by defailt with Docker, but instead a place to find and download Docker images.
+
+Docker Daemon and CLI are both written on Golang and open source.
+
+#### 
