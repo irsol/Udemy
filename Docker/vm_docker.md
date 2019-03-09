@@ -56,7 +56,7 @@ Docker it's a Client <-> Server application. The Daemon is the server (or proces
 
 #### Client -> Server Visualization 
 
-![How the Client telks to the Server](client_server.png)
+![How the Client talks to the Server](client_server.png)
 
 1. Client on the left side, this is where we're running various Docker commands. The client could be installed on your laptop running MacOs, Windows or a server running Linux.
 
@@ -89,7 +89,7 @@ Docker CE has 2 release channels:
 
 Docker Toolbox is an installation tool that pulls together and configures a number of things so that Mac OS or Windows can run Docker. It installs 6 tools:
 	
-	1. Docker CE/EE
+	1. Docker Community Edition/Enterprise Edition
 	
 	2. Docker Compose
 	
@@ -98,5 +98,41 @@ Docker Toolbox is an installation tool that pulls together and configures a numb
 	Docker Toolbox + Docker Machine == Virtual Box VM with Docker installed
 	
 	4. Virtual Box - Docker Daemon requaires Linux and Mac Os or Windows are not running Linux you need Virtual Box(Type 2 Hypervisor) to run Linux. Docker Toolbox will install and configurate Virtual Box for you. Than it use Docker Machine to create a Virtual Machine, this Virtual machine will be running a lightweight distribution of Linux.
-	5. Docker QuickStart Terminal
-	6. Kitematic
+	
+	5. Docker QuickStart Terminal - to use Docker open Docker QuickSTart Terminal. It directly installed by Docker Toolbox. It's a special terminal that when launched it'll automatically create a new server with Docker Machine if no server already exist.
+	
+	6. Kitematic is a graphical tool that let you manage your Docker Images and containers, it's optional.
+
+	Unlike the Docker Toolbox, Docker for Mac/Windows doesn't required Virtual Box. Instead it uses *Type 1 Hypervisors* that comes with your OS - for MacOs: HyperKit and for Windows: Hyper-V. It installs : 
+		1. Docker CE/EE
+		2. Docker Compose
+		3. Docker Machine
+
+*Docker for Mac/Windows*
+		
+	- Need a type 1 hypervisor
+	- Docker for Mac now lets you run Virtual Box 5+ at the same time! Window users still can't have VM
+	- Yosemite 10.10.3+
+	- Win 10(Pro, Ent, Stu)
+
+*Docker Toolbox*
+
+	- Need a type 2 hypervisor
+	- Can't have HyperKit or Hyper-V already running with the Docker Toolbox 
+	- Mountain Lion 10.8+
+	- Windows 7+ (Home is ok)
+
+#### Usability Concerns
+
+*Docker for Mac/Windows*
+	
+	- Docker daemon running on local host
+	- Access localhost
+	- Any terminal you want
+
+*Docker Toolbox*
+	- Docker Daemon running on remote host, that's mean it no longer running on local host instead it'll running on local ip adress on your network
+
+	- Access 192.168.99.100 or whatever VB gives you as a local ip adress
+	- Docker QuickStart Terminal
+	- Docker
