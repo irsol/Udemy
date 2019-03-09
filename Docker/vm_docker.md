@@ -129,10 +129,25 @@ Docker Toolbox is an installation tool that pulls together and configures a numb
 	- Docker daemon running on local host
 	- Access localhost
 	- Any terminal you want
+	- Windows subsystem for Linux can't run Docker natively
 
 *Docker Toolbox*
+	
 	- Docker Daemon running on remote host, that's mean it no longer running on local host instead it'll running on local ip adress on your network
 
 	- Access 192.168.99.100 or whatever VB gives you as a local ip adress
 	- Docker QuickStart Terminal
 	- Docker
+
+#### Performance woes
+
+*Docker for Mac/Windows*
+
+	- Might be slower for certain use cases
+
+
+*Docker Toolbox*
+
+	- Might be faster for certain use cases
+
+#### Docker Image vs Container?
