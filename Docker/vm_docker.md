@@ -86,3 +86,17 @@ Docker CE has 2 release channels:
 	- releases are every 3 month, ech release is supported and maintained for entire year;
 
 #### Docker Toolbox vs Docker for Mac
+
+Docker Toolbox is an installation tool that pulls together and configures a number of things so that Mac OS or Windows can run Docker. It installs 6 tools:
+	
+	1. Docker CE/EE
+	
+	2. Docker Compose
+	
+	3. Docker Machine - is part of Docker ecosystem. It's a command tool,helps you to create servers and get Docker installed on to those servers.
+
+	Docker Toolbox + Docker Machine == Virtual Box VM with Docker installed
+	
+	4. Virtual Box - Docker Daemon requaires Linux and Mac Os or Windows are not running Linux you need Virtual Box(Type 2 Hypervisor) to run Linux. Docker Toolbox will install and configurate Virtual Box for you. Than it use Docker Machine to create a Virtual Machine, this Virtual machine will be running a lightweight distribution of Linux.
+	5. Docker QuickStart Terminal
+	6. Kitematic
