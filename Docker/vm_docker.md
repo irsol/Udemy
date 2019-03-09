@@ -151,3 +151,13 @@ Docker Toolbox is an installation tool that pulls together and configures a numb
 	- Might be faster for certain use cases
 
 #### Docker Image vs Container?
+
+**Docker Image** is a combination of a file system and parameters. It's a package that rolls up everything you need to run your application. No state and once build never changes. You can build a new version. Docker Image is something that you can download, buils and run.
+
+ You can thing abount Docker Image as a class and Container is an instance of that class. One Image, many Containers.
+
+ **Docker Containers** are immutable.
+
+ #### Downloading and Storing Docker Images
+
+ 
