@@ -211,4 +211,12 @@ Docker Images may have one or more layers. Each layer has an id and file inside.
 7. `LABEL maintainer="irsol <email>"` \
 		 `version="1.0"`
 	
-	Expect to pass in key and value, you can attach a metadata to a Docker Image. You can retrieve with special command. Label is optional. By adding Label you can filter your Docker Container output and only add Containers that match the filter. 
+	Expect to pass in key and value, you can attach a metadata to a Docker Image. You can retrieve with special command. Label is optional. By adding Label you can filter your Docker Container output and only add Containers that match the filter.
+
+8. `CMD flask run --host=0.0.0.0 --port=5000`
+
+	Defines default command that will be run when this Docker Image get started 
+
+#### Building and Pushing Docker Images
+
+ 1. `docker image build -t web1 .` tag image with `-t` flag to be `web1` 
