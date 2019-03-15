@@ -196,4 +196,19 @@ Docker Images may have one or more layers. Each layer has an id and file inside.
 
 6. `COPY . .` first period - copy at the same level as Dockerfile and below, second period - is a destination.
 
-#### 
+#### Creating a Dockerfile steps
+
+1. Pull from the Python alpine image
+
+2. `RUN mkdir app` Make a folder to store the application source code
+3. `WORKDIR /app` Set a working directory
+
+4. `COPY requirements.txt requirements.txt`
+5. `RUN pip install -r requirements.txt`
+
+6. `COPY . .` Copy application source code
+
+7. `LABEL maintainer="irsol <email>"` \
+		 `version="1.0"`
+	
+	Expect to pass in key and value, you can attach a metadata to a Docker Image. You can retrieve with special command. Label is optional. By adding Label you can filter your Docker Container output and only add Containers that match the filter. 
