@@ -160,4 +160,40 @@ Docker Toolbox is an installation tool that pulls together and configures a numb
 
  #### Downloading and Storing Docker Images
 
- 
+ Running Docker Image creates a Docker Container. For example, for `docker run hello-world` you download hello-world Docker Image from the Docker Hub. **Docker Hub** is a part of Docker ecosystem, it allows you to find Docker Images and manage your own Images.
+
+ Docker Hub is a Docker Registry. **Docker Registry** is a place where you can store Docker Images.
+
+ *Docker Hub*
+ 	
+ 	- Store your Images
+ 	- Store free community Images
+ 	- Official Image
+ 	- Paid trusted images
+ 	- Keep tabs on paid content
+
+#### Docker Build Process
+
+Two ways to build Docker Images:
+
+1. Run a Docker Container
+	- Inside the container you can change and commit `docker commit `
+
+2. Use Dockerfile, it has build steps for your application. It's a text file that you create and it read by Docker. Each step in inside the Dockerfile becomes a separate layer in your Docker Image. 
+
+Docker Images may have one or more layers. Each layer has an id and file inside. Docker Image is a result when all years are joined.
+
+#### Creating a Dockerfile
+
+1. First `FROM` instruction. Use official base Docker Images. For example: `FFOM python: 3.6-alpine` from the left side is the Doker Image and fromthe right side the tag. If you skip the tag, it'll take the latest version.
+
+2. Create a folder to store Flask app. Use `RUN` instruction, it allows you to run any script that you can normally run inside your base Images Operating System without Docker:
+`RUN mkdir /app`
+3. `WORKDIR /app` here we pass directory or directories.
+
+4. `COPY requirements.txt requirements.txt` takes source and destination
+5. `RUN pip install -r requirements.txt`
+
+6. `COPY . .` first period - copy at the same level as Dockerfile and below, second period - is a destination.
+
+#### 
