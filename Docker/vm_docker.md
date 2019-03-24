@@ -219,4 +219,40 @@ Docker Images may have one or more layers. Each layer has an id and file inside.
 
 #### Building and Pushing Docker Images
 
- 1. `docker image build -t web1 .` tag image with `-t` flag to be `web1` 
+ `docker image build -t web1 .` tag image with `-t` flag, to be `web1` 
+ 
+###### Commands
+
+`docker image --help`
+
+`docker image inspect web1`
+
+`docker image built -t web1:1.0 .`
+
+`docker image ls`
+
+`docker image rm web1:1.0` delete image with tag 1.0 (repository or tag)
+
+`docker login` to authenticate
+
+`docker image tag web1 nickname/web1:latest` tag the image with your docker hub username
+
+`docker image push nickname/web1:latest` to push Docker Image
+
+`docker image rm -f 4characters of image id` delete the local copy of the image
+
+ ######To remove docker username from tag
+ 
+ `docker image tag username/web1` to create the new tag
+
+ `docker image rm username/web1` to delete the old tag
+
+#### Running Docker Container
+
+`docker container ls` list all running containers
+
+`docker container run -it -p 5000:5000 -e FLASK_APP=app.py web1` 
+-it flag, -p flag for ports it expected that you provide 2 ports, separated by a column. First port for Docker host, second port for Docker Container. -e flag stands for enviroment variable, in my example flask app. The last one is the name of Docker Image you want to run.
+
+`docker container ls -a` to list all containers
+
