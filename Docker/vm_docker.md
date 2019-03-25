@@ -254,5 +254,14 @@ Docker Images may have one or more layers. Each layer has an id and file inside.
 `docker container run -it -p 5000:5000 -e FLASK_APP=app.py web1` 
 -it flag, -p flag for ports it expected that you provide 2 ports, separated by a column. First port for Docker host, second port for Docker Container. -e flag stands for enviroment variable, in my example flask app. The last one is the name of Docker Image you want to run.
 
-`docker container ls -a` to list all containers
+`docker container ls -a` to list all stopped containers
+`ctrl C` to stop the process
+
+`docker container rm name` remove containers by name
+
+`docker container run -it --rm --name web1 -p 5000:5000 -e FLASK_APP=app.py web1` --rm remove the container after it stopped, --name container's custome name web1
+
+`docker container run -it --rm --name web1 -p 5000:5000 -e FLASK_APP=app.py -d web1` -d to start a container in detached mode, you use -d=true or just -d option. If you use -d with --rm, the container is removed when it exits or when the daemon exits, whichever happens first.
+
+`docker container logs 4 characters of the container id or the container name` to see log output, -f flag shows in a real time
 
