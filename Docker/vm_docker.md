@@ -263,5 +263,9 @@ Docker Images may have one or more layers. Each layer has an id and file inside.
 
 `docker container run -it --rm --name web1 -p 5000:5000 -e FLASK_APP=app.py -d web1` -d to start a container in detached mode, you use -d=true or just -d option. If you use -d with --rm, the container is removed when it exits or when the daemon exits, whichever happens first.
 
-`docker container logs 4 characters of the container id or the container name` to see log output, -f flag shows in a real time
+`docker container logs 4 characters of the container id or the container name` to see log output, -f flag shows in a real time logs
+
+`docker container stats` shows you same useful information about memory usage, CPU and other.
+
+`docker docker container run -it --name web1_3 -p 5000 -e FLASK_APP=app.py -d --restart on-failure web1` --restart on-failure[:max-retries] Restarts only if the container exits with a non-zero exit status. Optionally, limits the number of restart retries the Docker daemon attempts.
 
