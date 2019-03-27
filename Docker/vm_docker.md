@@ -301,7 +301,8 @@ Takes you username "$(id -u):$(id -g)" to name the new file by username instead 
 #### Linking Containers with Docker Networks
 
 *Internal networks* operate over a LAN - stands for local area network. 
-**
+
+*External networks* operate over a WAN - stands for wired area network.
 
 Docker allows to run containers on multiple networks. You can use Docker's default network or create internal or external networks.
 
@@ -309,8 +310,15 @@ When you install Docker, it creates three networks automatically. You can list t
 
 `docker network inspect name` to inspect network
 
+**Join both containers to the Docker default bridge network**
+It can talk to ech other over the local ip adress.
+
 `docker container run --rm -itd -p 6379:6379 --name redis redis:4.0-alpine` to run
 
 `docker container run -itd -p 5000:5000 -e FLASK_APP=app.py -e FLASK_DEBUG=1 --name web2 -v "$PWD:/app" web2`
 
-`docker exec redis ifconfig` 
+`docker exec redis ifconfig` to check info, local ip adress.
+
+`docker exec web2 ifconfig`
+
+To varify if the network works, ping redis server from the flask server.
