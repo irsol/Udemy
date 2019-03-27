@@ -269,3 +269,48 @@ Docker Images may have one or more layers. Each layer has an id and file inside.
 
 `docker docker container run -it --name web1_3 -p 5000 -e FLASK_APP=app.py -d --restart on-failure web1` --restart on-failure[:max-retries] Restarts only if the container exits with a non-zero exit status. Optionally, limits the number of restart retries the Docker daemon attempts.
 
+#### Code reloading with Volumes
+
+`docker container run -it -p 5001:5000 -e FLASK_APP=app.py --rm --name web1_2 -e FLASK_DEBUG=1 web1` add debug mode
+
+`docker container run -it -p 5001:5000 -e FLASK_APP=app.py --rm --name web1_2 -e FLA_DEBUG=1 -v "$PWD:/app" web1` -v stands for the volume, $PWD:/app is our directory to connect to the container, take everything from the working directory and place it into app folder in running container. Use -v tag only in development mode. You can add multiple -v flag.
+
+#### Debugging
+
+Lynux uses *inotify* to monitoring file system for changes. If you have a bag, make change in Dockerfile: `FROM python:3.6-slim` 
+
+If it doesn't help: 
+
+- connect to the running container `docker container exas -it web1_2 bash` (bash for slim, sh for alpine), it executed interactive bash/sh session into the container web1_2
+- `ls -la` list all the files in the current directory
+- delete pyc files `rm *.pyc`
+- exit `ctrl + d`
+
+#### User flag: --user
+
+Takes you username "$(id -u):$(id -g)" to name the new file by username instead by root(default):
+
+`docker conatainer exec -it --user "$(id -u):$(id -g)" web1_2 touch web1_2`
+
+- to list the files in directory: `ls -la`
+
+#### Python prompt
+
+`docker container run -it --rm --name testingpython python:3.6-alpine python`
+
+#### Linking Containers with Docker Networks
+
+*Internal networks* operate over a LAN - stands for local area network. 
+**
+
+Docker allows to run containers on multiple networks. You can use Docker's default network or create internal or external networks.
+
+When you install Docker, it creates three networks automatically. You can list these networks using the docker network ls command. These three networks are built into Docker. When you run a container, you can use the --network flag to specify which networks your container should connect to. You can't remove them, they're requared by Docker Daemon. 
+
+`docker network inspect name` to inspect network
+
+`docker container run --rm -itd -p 6379:6379 --name redis redis:4.0-alpine` to run
+
+`docker container run -itd -p 5000:5000 -e FLASK_APP=app.py -e FLASK_DEBUG=1 --name web2 -v "$PWD:/app" web2`
+
+`docker exec redis ifconfig` 
