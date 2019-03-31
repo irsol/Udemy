@@ -391,6 +391,7 @@ At the Dockerfile added new instruction: `VOLUME ["/app/public"]` this line says
 		- `cd /app/public`  
 		- `ls -la`
 		- `cat main.css` to check css file
+
 You can see all changes in redis container immediatly without restarting the container.
 
 **Volume instructions**
@@ -401,3 +402,22 @@ You can see all changes in redis container immediatly without restarting the con
 - `docker container run -itd -p 5000:5000 -e FLASK_APP=app.py -e FLASK_DEBUG=1 --name web2 -v "$PWD:/app" -v /app/public --net firstnetwork web2` run Flask container with `-v /app/public`
 - `docker container run --rm -itd -p 6379:6379 --name redis --net firstnetwork -v web2_redis:/data --volumes-from web2 redis:4.0-alpine` add `--volumes-from web2` run redis 
 - `docker container exec redis cat /app/public/main.css` to check 
+
+
+#### Optimizing Docker Images
+
+Create `.dockerignore` file and add necessery patterns:
+
+`.dockerignore`
+`.git/`
+`.foo/*`
+`**/*.swp`  useful when use vim as a text editor
+`**/*.txt` ignore text file 
+`!special.txt` except this text file, could have any name
+
+Build new Image:
+
+- `docker image build -t weboptimized .`
+- `docker image ls` to list all images
+- add dependency `postgresql-dev \` to the Dockerfile
+- 
