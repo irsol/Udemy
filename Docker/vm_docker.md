@@ -380,4 +380,24 @@ Restart redis and flask app, start redis before flask, redis is dependency of fl
 
 We used named volume to store data from the container on the docker host.
 
-Learn how to link data between containers without docker host. Popular usecase for this will be web apps that have static files such as: JS, CSS, Images, etc. Most web frameworks have built-in server for development mode which serve this files. In production you need to serve this files through a proper server such as **ngnix/Apache**
+Learn how to link data between containers without docker host. Popular usecase for this will be web apps that have static files such as: JS, CSS, Images, etc. Most web frameworks have built-in server for development mode which serve this files. In production you need to serve this files through a proper server such as **ngnix/Apache**.
+
+At the Dockerfile added new instruction: `VOLUME ["/app/public"]` this line says that docker to expose /app/public folder as a valume when the container runs. It's possible to add more volumes, just put each on the new line.
+
+- `docker image build -t web .` build new Docker Image, since we changed Dockerfile
+- `docker container run -itd -p 5000:5000 -e FLASK_APP=app.py -e FLASK_DEBUG=1 --name web2 -v "$PWD:/app" --net firstnetwork web2` run Flask container
+- `docker container run --rm -itd -p 6379:6379 --name redis --net firstnetwork -v web2_redis:/data --volumes-from web2 redis:4.0-alpine` add `--volumes-from web2` web2 is container name where volume, run redis
+- `docker container exec -it redis sh` drop to the redis container, to check if the volume is working: 
+		- `cd /app/public`  
+		- `ls -la`
+		- `cat main.css` to check css file
+You can see all changes in redis container immediatly without restarting the container.
+
+**Volume instructions**
+
+- `docker container stop web2` `docker container stop redis` stop containers
+- comment VOLUME line in the Dockerfile
+- `docker image build -t web2 .` build new image
+- `docker container run -itd -p 5000:5000 -e FLASK_APP=app.py -e FLASK_DEBUG=1 --name web2 -v "$PWD:/app" -v /app/public --net firstnetwork web2` run Flask container with `-v /app/public`
+- `docker container run --rm -itd -p 6379:6379 --name redis --net firstnetwork -v web2_redis:/data --volumes-from web2 redis:4.0-alpine` add `--volumes-from web2` run redis 
+- `docker container exec redis cat /app/public/main.css` to check 
