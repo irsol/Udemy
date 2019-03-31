@@ -313,7 +313,7 @@ When you install Docker, it creates three networks automatically. You can list t
 **Join both containers to the Docker default bridge network**
 It can talk to ech other over the local ip adress.
 
-`docker container run --rm -itd -p 6379:6379 --name redis redis:4.0-alpine` to run
+`docker container run --rm -itd -p 6379:6379 --name redis redis:4.0-alpine` to run. 6379 is default redis port, -itd run in a background. 
 
 `docker container run -itd -p 5000:5000 -e FLASK_APP=app.py -e FLASK_DEBUG=1 --name web2 -v "$PWD:/app" web2`
 
@@ -321,4 +321,6 @@ It can talk to ech other over the local ip adress.
 
 `docker exec web2 ifconfig`
 
-To varify if the network works, ping redis server from the flask server.
+`docker exec web2 ping ip web2`
+
+To varify if the network works, ping redis server from the flask server: `docker exec web2 ping ip redis`
