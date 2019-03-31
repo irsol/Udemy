@@ -324,3 +324,52 @@ It can talk to ech other over the local ip adress.
 `docker exec web2 ping ip web2`
 
 To varify if the network works, ping redis server from the flask server: `docker exec web2 ping ip redis`
+
+`docker exec redis cat /etc/hosts` shows container id
+
+#### Create bridge network
+
+`docker network create --driver bridge firstnetwork` to create network
+
+`docker network inspect firstnetwork` to inspect new network, as a containers is empty, need to stop flask app and redis and restart them on this network.
+
+`docker container stop web2` `docker container stop redis`
+
+`docker container run --rm -itd -p 6379:6379 --name redis --net firstnetwork redis:4.0-alpine` to run. 6379 is default redis port, -itd run in a background.
+
+`docker container run -itd -p 5000:5000 -e FLASK_APP=app.py -e FLASK_DEBUG=1 --name web2 -v "$PWD:/app" --net firstnetwork web2`
+
+`docker ps -a` to list docker containers
+
+`docker exec web2 ping redis` to access docker containers by name, instead of looking for ip adress and ping with it.
+
+`docker inspect network firstnetwork`
+
+- `docker exec -it redis redis-cli` redis-cli is a program, to interact with redis server directly. It's like use SQL to connect and iteract with DB.
+- `KEYS *` 
+- `INCRBY web2_counter 1000000` Increments the number stored at key by one. If the key does not exist, it is set to 0 before performing the operation. An error is returned if the key contains a value of the wrong type or contains a string that can not be represented as integer. This operation is limited to 64 bit signed integers.
+- `ctrl d` to exit
+
+**Bridge driver can only connect containers that are on the same docker host!**
+
+**Use Overlay driver to connect containers in a multiple hosts.**
+
+#### Persisting Data to Docker Host 
+
+Docker containers are immutable, after stopping redis and flask app we don't have counter data.
+
+Restart redis and flask app, start redis before flask, redis is dependency of flask app:
+
+- `docker container run --rm -itd -p 6379:6379 --name redis --net firstnetwork redis:4.0-alpine`
+
+- `docker container run -itd -p 5000:5000 -e FLASK_APP=app.py -e FLASK_DEBUG=1 --name web2 -v "$PWD:/app" --net firstnetwork web2`
+
+**Set up a volume for redis:**
+`web2_redis:/data` Named valumes allow to supply a name instead of file path, Docker manage it's valume for you on it's own valumes directory. It's helpful when you need safe and load data for db.
+
+- `docker container stop redis`
+- `docker volume create web2_redis` to create named volume
+- `docker volume ls` to list volumes
+- `docker volume inspect web2_redis` to list details
+
+
