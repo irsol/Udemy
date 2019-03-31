@@ -370,6 +370,14 @@ Restart redis and flask app, start redis before flask, redis is dependency of fl
 - `docker container stop redis`
 - `docker volume create web2_redis` to create named volume
 - `docker volume ls` to list volumes
-- `docker volume inspect web2_redis` to list details
+- `docker volume inspect web2_redis` to list details. "Mountpoint" is where data will be srored. 
+- `docker container run --rm -itd -p 6379:6379 --name redis --net firstnetwork -v web2_redis:/data  redis:4.0-alpine` restart redis, add `-v web2_redis/data`, `/data` directory where redis will be looking for by default to restore data.
 
+- **Manually save redis data**: `docker exec redis redis-cli SAVE`
+- stop and restart redis with -v web2_redis/data flag, reload localhost:5000 to see that previous data saved.
 
+#### Sharing Data Between Containers
+
+We used named volume to store data from the container on the docker host.
+
+Learn how to link data between containers without docker host. Popular usecase for this will be web apps that have static files such as: JS, CSS, Images, etc. Most web frameworks have built-in server for development mode which serve this files. In production you need to serve this files through a proper server such as **ngnix/Apache**
