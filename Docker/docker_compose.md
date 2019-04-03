@@ -2,20 +2,20 @@ Wich Docker Compose you just creat docker-compose.yml file. It is a tool for def
 
 # Create docker-compose.yml
 
-1. `version: `3` ` add version
+1. ```version: 3``` add version
 
-2. define services property:
-   `services: 
+define services property:
+ ```services: 
    	  redis:
    	    image: 'redis:5.0.4-alpine'
    	    ports:
-   	      - '6379:6379'`
+   	      - '6379:6379'
 
-   	 `web: '.'
+   	 web: '.'
    	  ports:
    	    - '5000:5000'
    	      volumes:
-   	        - '.:/app`
+   	        - '.:/app'```
 
    	 could be any name, but the service name that choose here will be used in Docker Image and Container names. '.' means current directory.
 
