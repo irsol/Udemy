@@ -409,9 +409,13 @@ You can see all changes in redis container immediatly without restarting the con
 Create `.dockerignore` file and add necessery patterns:
 
 `.dockerignore`
+
 `.git/`
+
 `.foo/*`
+
 `**/*.swp`  useful when use vim as a text editor
+
 `**/*.txt` ignore text file 
 `!special.txt` except this text file, could have any name
 
@@ -420,4 +424,17 @@ Build new Image:
 - `docker image build -t weboptimized .`
 - `docker image ls` to list all images
 - add dependency `postgresql-dev \` to the Dockerfile
-- 
+
+#### ENTRYPOINT
+
+ENTRYPOINT [" "] instructions allows you to execute a script after Docker Container starts.
+
+For example, you want to use 1 image for different projects, each project has different set ups, ENV variables let you configure this.
+
+ENTRYPOINT steps in Dockerfile: 
+
+- `COPY docker-entrypoint.sh /` add an entrypoint script to the Dockerdile.
+
+- `RUN chmod +x /docker-entrypoint.sh` check if an entrypoint script is executable because it'll be run from within a Docker Image and this is how Linux file permission is work.
+
+- `ENTRYPOINT ["/docker-entrypoint.sh"]` point where script is located.
