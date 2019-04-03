@@ -438,3 +438,36 @@ ENTRYPOINT steps in Dockerfile:
 - `RUN chmod +x /docker-entrypoint.sh` check if an entrypoint script is executable because it'll be run from within a Docker Image and this is how Linux file permission is work.
 
 - `ENTRYPOINT ["/docker-entrypoint.sh"]` point where script is located.
+
+Run app with ENTRYPOINT:
+
+- `docker container run --rm -itd -p 6379:6379 --name redis --net firstnetwork -v web2_redis:/data redis:4.0-alpine`
+
+- `docker image build -t webentrypoint .` build new version of flask image because Dickerfile has been change due to adding an entrypoint 
+
+- `docker container run --rm -it -p 5000:5000 -e FLASK_APP=app.py -e FLASK_DEBUG=1 --name webentrypoint -v "$PWD:/app" --net firstnetwork webentrypoint` run flask, change the name to entrypoint, remove -d flag
+
+- `docker container run --rm -it -p 50:5000 -e FLASK_APP=app.py -e FLASK_DEBUG=1 -e WEB2_COUNTER_MSG="Docker fans have visited this page" --name webentrypoint --net firstnetwork webentrypoint` add new environment variable WEB_COUNTER
+
+#### docker-entrypoint.sh
+
+- Use sh because alpine image doesn't have bash installed.
+- `set -e` tells to the script to abort whent the error. Both lines so far are shell script related, they are not ENTRYPOINT specific.
+
+- `echo "The Dockerfile ENTRYPOINT has been executed!"` prints the sentence to the terminal. Not necessery.
+
+- `export WEB2_COUNTER_MSG="${WEB2_COUNTER_MSG:-carbon based life forms have sensed this website}"` custom scripting, run every time when Docker container starts. Variable WEB2_COUNTER_MSG. It has a default value in case the value is not exist already.
+
+- `exec "$@"` says after executing everything in this script, take every custom argument you pass in in command line and executed as a single command.
+
+CMD instruction passes whatever you supply to it over to an ENTRYPOINT
+instructions. 
+
+ENTRYPOINT lets you run custom scripts when container starts. They don't add Image layers to your Docker Image because they execute after Image build and running. 
+
+Default ENTRYPOINT define by Docker: `/bin/sh/ -c`
+The real CMD: `/bin/sh/ -c "$ && flask ..."` it means that CMD instruction, which was to run the Flask server gets ran as an argument to /bin/sh -c
+, this is how can shall script could be running without openning terminal session.
+
+#### Cleaning Up 
+
