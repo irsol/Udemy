@@ -471,3 +471,20 @@ The real CMD: `/bin/sh/ -c "$ && flask ..."` it means that CMD instruction, whic
 
 #### Cleaning Up 
 
+- `docker container ls` to see what containers are running
+
+- `docker container ls -a` shows all stopped containers, to delete them use -rm 
+
+- `docker system df` to see how much disk space Docker is using
+
+- `docker image ls` to see dangling images, volumes, they usually with <none> tag. 
+
+- `docker system df -v` to see verbouse output 
+
+- `docker system info` 
+
+- `docker system prune` delete all dangling images, volumes, not used networks. Adding -f flag delete all without permission, -a flag delete everything!
+
+- `docker container stop list of container names, , ` to stop multiple containers
+
+- `docker container stop $(docker container ls -a -q)` to stop all containers
