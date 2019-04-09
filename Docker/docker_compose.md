@@ -114,3 +114,13 @@ Files you need to dockerize your web app:
 - docker-compose.yml
 - .env
 
+Not all of this files are must but it's a good to include all this files to the project.
+
+1. Configure web app to log all outputs to standard output. Flask already does this. Other frameworks allow you to configure how log data.
+
+2. Configuration management. Use ENV variables. Separate environment == Separate ENV files.
+
+3. You shoudn't store important things in your memory web app. It's not a scalable solution in any case. Lets **Redis** to store your data in between requests. Good example of how to store data is to save session on the clients side through site Cookies. To save sessions on a server side you can use Redis to save sessions in a backend.
+
+
+
