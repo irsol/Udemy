@@ -75,3 +75,8 @@ The `.env` file property takes a list of environment files to load and it's load
 - To remove container: 
  1. List: `docker container ls -la`
  2. Remove: `docker-compose rm` or prune command
+
+- To overwrite CMD instruction from the Dockerfile for a specific services. For example to run 2 services from the Dockerfile: copy web and paste in the Dockerfile, rename web to worker (any name), delete host property, add `command: `
+
+- To build Docker custom Image: `docker-compose build` and add to the Dockerfile `images: 'iryna/web:1.0'`
+ 
