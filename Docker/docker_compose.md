@@ -79,4 +79,15 @@ The `.env` file property takes a list of environment files to load and it's load
 - To overwrite CMD instruction from the Dockerfile for a specific services. For example to run 2 services from the Dockerfile: copy web and paste in the Dockerfile, rename web to worker (any name), delete host property, add `command: `
 
 - To build Docker custom Image: `docker-compose build` and add to the Dockerfile `images: 'iryna/web:1.0'`
- 
+
+
+#### Docker Compose API v1/v2/v3
+
+There are currently three versions of the Compose file format:
+
+- Version 1, the legacy format. This is specified by omitting a version key at the root of the YAML.
+
+- Version 2.x. This is specified with a version: '2' or version: '2.1', etc., entry at the root of the YAML.
+
+- Version 3.x, the latest and recommended version, designed to be cross-compatible between Compose and the Docker Engine’s swarm mode. This is specified with a version: '3' or version: '3.1', etc., entry at the root of the YAML.
+
