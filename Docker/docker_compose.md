@@ -91,3 +91,26 @@ There are currently three versions of the Compose file format:
 
 - Version 3.x, the latest and recommended version, designed to be cross-compatible between Compose and the Docker Engine’s swarm mode. This is specified with a version: '3' or version: '3.1', etc., entry at the root of the YAML.
 
+
+#### Managing Microservices with Docker Compose
+
+Run Voting app.
+
+- Vote app is written in Flask, Result app is written in Express and gets updated in a real time.
+ 
+ How everything works together:
+
+voting-app Python --> redis Redis --> worker .NET --> db PostgreSQL --> result-app Node.js
+
+This is a nice eample of Microservices based architecture.
+
+
+#### Dockerize your Web Apps
+
+Files you need to dockerize your web app:
+
+- Dockerfile
+- .dockerignore
+- docker-compose.yml
+- .env
+
