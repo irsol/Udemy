@@ -122,5 +122,43 @@ Not all of this files are must but it's a good to include all this files to the 
 
 3. You shoudn't store important things in your memory web app. It's not a scalable solution in any case. Lets **Redis** to store your data in between requests. Good example of how to store data is to save session on the clients side through site Cookies. To save sessions on a server side you can use Redis to save sessions in a backend.
 
+#### Twelve-Factor App methodology
 
+The Twelve-Factor App methodology is a methodology for building software as a service applications. These best practices are designed to enable applications to be built with portability and resilience when deployed to the web.
+
+I. Codebase
+One codebase tracked in revision control, many deploys
+
+II. Dependencies
+Explicitly declare and isolate dependencies
+
+III. Config
+Store config in the environment
+
+IV. Backing services
+Treat backing services as attached resources
+
+V. Build, release, run
+Strictly separate build and run stages
+
+VI. Processes
+Execute the app as one or more stateless processes
+
+VII. Port binding
+Export services via port binding
+
+VIII. Concurrency
+Scale out via the process model
+
+IX. Disposability
+Maximize robustness with fast startup and graceful shutdown
+
+X. Dev/prod parity
+Keep development, staging, and production as similar as possible
+
+XI. Logs
+Treat logs as event streams
+
+XII. Admin processes
+Run admin/management tasks as one-off processes
 
