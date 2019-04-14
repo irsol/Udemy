@@ -44,7 +44,7 @@ console.log(name);
 ##### const 
 
 const stands for constant that means it can`t change or can`t be reassigned. 
-`const `allows to declare variables whose values are never intended to change. The variable is available from the block it is declared in.
+`const`allows to declare variables whose values are never intended to change. The variable is available from the block it is declared in.
 
 ```
 const name = "John";
@@ -54,7 +54,7 @@ name = "Sara";
 ```
 When using const with arrays, objects and with primitiv types of data like strings, numbers they're can be change but not be reassigned.
 
-````
+```
 const person = {
   name: "John",
   age: 30
