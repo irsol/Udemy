@@ -76,12 +76,24 @@ Stored directly in the location the variable accesses. Stored on the stack.
 - **Undefined** is a variable that has not been assigned a value. All variables are undefined by default or till the value will be assign.
 - **Symbols** (ES6)
 
-**Referense  Data Types:**
+**Reference  Data Types:**
+Reference types aren't primitive. They're not accessed by the actual value they`re acces
+by a reference. They're also considered objects.
+
+Accessed by reference. Data or Objects are stored on the heap.
+A pointer to a location in memory.
+
 - **Arrays**
 - **Object Literals**
 - **Functions**
 - **Dates**
-- **Anything else**
+- **Anything else you can store is going to be reference types**
 
-Accessed by reference. Data or Objects are stored on the heap.
-A pointer to a location in memory.
+JavaScript is a dynamicallyt yped language. This means that:
+
+* Types are associated with values not varibles
+* The same variable can hold multiple types
+* Don't need to specify types. Many languages you have to define what type of
+  value is going to be in that variables.
+* Most other languages are statically typed (Java, C#, C++)
+* There are technologies that can turn JS into a stytically typed language. For example         TypeScript, Flow.
