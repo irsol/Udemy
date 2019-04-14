@@ -1,5 +1,5 @@
 #### Log to the console
-
+```
 console.log('Hello World');
 console.log(1,2,3);
 console.log(true);
@@ -18,6 +18,7 @@ console.time('Hello');  // gives time that it took to run Hello World.
   console.log('Hello World');
   console.log('Hello World');
 console.timeEnd('Hello');
+````
 
 #### Variables
 
@@ -31,10 +32,10 @@ Variable can include: letters, numbers, _, $ sign. Can't start with numbers. $ s
 ##### let
 
 `let` works similar to var:
-
-`let name;  // init  
+```
+let name;  // init  
 name = "John Tree";
 console.log(name);
 name = "Aloe Vera";  // reassign variables if use var or let
 console.log(name);
-`
+```
