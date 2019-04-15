@@ -70,13 +70,14 @@ console.log(person);
 Stored directly in the location the variable accesses. Stored on the stack.
 
 - **String** is a sequences of characters like letters, 
-- **Number** can be decimals, integers, flows.
-- **Boolean** True or False
+- **Number** can be decimals, integers, flows. Numbers don't requaired quotes.
+- **Boolean** True or False. Don't have quotes.
 - **Null** is an ententional empty value 
 - **Undefined** is a variable that has not been assigned a value. All variables are undefined by default or till the value will be assign.
 - **Symbols** (ES6)
 
-**Reference  Data Types:**
+**Reference  Data Types**
+
 Reference types aren't primitive. They're not accessed by the actual value they`re acces
 by a reference. They're also considered objects.
 
@@ -97,3 +98,39 @@ JavaScript is a dynamicallyt yped language. This means that:
   value is going to be in that variables.
 * Most other languages are statically typed (Java, C#, C++)
 * There are technologies that can turn JS into a stytically typed language. For example         TypeScript, Flow.
+
+#### Type conversion
+
+Number to string:
+`lenght` only works on strings. To convert number to a string wrap it in the string function.
+`val = String(5); 
+
+Boolean to a string:
+`val = String(true);`
+
+Date to string:
+`val = String(new Date());`
+
+String to date:
++ `val.toFixed();` works only on numbers
+
+```
+val = Number("5");
+console.log(val.toFixed());
+```
+
+With Template strings (es6)       
+```
+html = `
+  <ul>
+    <li>Name: ${name}</li>
+    <li>Age: ${age}</li>
+    <li><Job: ${job}/li>
+    <li>City: ${city}</li>
+  </ul>
+`;
+```
+
+#### Arrays
+
+Arrays in JavaScript are a special type of object. They work very much like regular objects (numerical properties can naturally be accessed only using [] syntax) but they have one magic property called 'length'.
