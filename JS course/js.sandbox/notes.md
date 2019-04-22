@@ -144,7 +144,9 @@ const fruit = ["A", "B", "c"]
 const mixed = ["2", true, null, "hi", {a:1, b:2}, new Date()]
 
 let val;
+```
 
+```
 // Get array length
 val = numbers.length;
 // Check if id array
@@ -155,10 +157,47 @@ val = numbers[3];
 numbers[2] = 100;
 // Find index
 val = numbers.lastIndexOf(5);
+// Mutating Arrays
+// Add on to end
+numbers.push(250);
+// Add on to front
+numbers.unshift(120);
+// Take of from end
+numbers.pop();
+// Take of from the fromt
+numbers.shift();
+// Splice out values: (start,end)
+numbers.splice(0,2);
+// Reverse
+numbers.reverse();
+
+// Concatenate array
+val = numbers.concat(numbers2);  // sort array by the first num
+
+// Sort arrays
+val = fruit.sort();
+val = numbers.sort();
+// use the "compare function", to ascending order
+val = numbers.sort(function(x, y){
+  return x - y;
+});
+
+// use the "compare function", to descending order
+val = numbers.sort(function(x, y){
+  return y - x;
+});
 
 console.log(numbers); 
 console.log(val);
-
-// Mutating Arrays
+```
 
 ```
+// Find the first instance of under 50 num
+function under50(num){
+  return num < 50;
+}
+
+val = numbers.find(under50);
+```
+
+#### Object Literals
