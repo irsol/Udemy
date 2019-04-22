@@ -394,4 +394,79 @@ switch(new Date().getDay()){
 }
 
 console.log(`Today is ${day}`);
-````
+```
+
+#### Function Declararion and Expressions
+
+Functions are blocks of code that can be defined and then called at a later time or in some cases defined in call the same time.
+There are a few different types of functions or different ways of writing functions in JS. 
+
+```
+// Function Declaration
+
+function greet(firsName){
+  //console.log('Hello');
+  return 'Hello ' + firsName;
+}
+
+console.log(greet());
+```
+
+**undefined**
+```
+function greet(firsName = 'John', lastName = 'Doe'){
+  // old version
+  //if(typeof firsName === 'undefined'){firsName = 'John'}
+  //if(typeof lastName == 'undefined'){lastName = 'Doe'}
+  
+  //console.log('Hello');
+  return 'Hello ' + firsName + ' ' + lastName;
+}
+
+console.log(greet());
+```
+
+**Function Expression** is basically putting a function as a variable assignment.
+
+```
+const square = function(x){
+  return x*x;
+};
+
+console.log(square(8));
+```
+
+**IIFEs**
+Immidiatley Invokable Function Expressions - IIFEs. It is a function that you declare and run at the same time.
+
+```
+(function(){
+  console.log('IIFE Ran..');
+})();
+```
+
+```
+(function(name){
+  console.log('IIFE Ran..');
+})('Brad');
+```
+
+**Property Methods**
+```
+const todo = {
+  add: function(){
+    console.log('Add todo..');
+  },
+  edit: function(id){
+    console.log('Edit todo ${id}');
+  }
+}
+
+todo.delete = function(){
+  console.log('Delete todo...');
+}
+
+todo.add();
+todo.edit(22);
+todo.delete();
+```
