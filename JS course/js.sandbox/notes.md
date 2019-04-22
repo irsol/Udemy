@@ -133,4 +133,32 @@ html = `
 
 #### Arrays
 
-Arrays in JavaScript are a special type of object. They work very much like regular objects (numerical properties can naturally be accessed only using [] syntax) but they have one magic property called 'length'.
+Arrays in JavaScript are a special type of object. They work very much like regular objects (numerical properties can naturally be accessed only using [] syntax) but they have one interesting property called 'length'.
+
+Create array:
+```
+const numbers = [66, 76, 84, 63, 5];
+const numbers2 = new Array(33, 2, 65, 7);  // array constructor
+
+const fruit = ["A", "B", "c"]
+const mixed = ["2", true, null, "hi", {a:1, b:2}, new Date()]
+
+let val;
+
+// Get array length
+val = numbers.length;
+// Check if id array
+val = Array.isArray(numbers);
+// Get a single value
+val = numbers[3];
+// Insert into array
+numbers[2] = 100;
+// Find index
+val = numbers.lastIndexOf(5);
+
+console.log(numbers); 
+console.log(val);
+
+// Mutating Arrays
+
+```
