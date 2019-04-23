@@ -488,5 +488,10 @@ inside the loop.
 **for in** loop is often used for objects.
 
 #### Window Object
+DOM - document object model. The document object is part of the window object. 
+The window object is the global object in client side of JS. In client side JS the winwod or the browser is the global environmet.
+Node JS and Chrome both use the same js engine called V8 and it works at the same way just in differnt environments.s
 
-The window object is the global object in client side of JS.
+#### Scope
+
+**let** and **const** have a block level scope and **var** has a function scope.
