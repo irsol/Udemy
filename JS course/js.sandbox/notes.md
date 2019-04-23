@@ -470,3 +470,23 @@ todo.add();
 todo.edit(22);
 todo.delete();
 ```
+
+#### Loops
+
+**Loop** is an instruction that repeats until a specific condition is reached. Most popular types of general loops: 
+for, while, do while.
+
+**for** loop set up like a fucntion, takes in three parameters that are separate by semicolons. The first parameter is a declaration of a variable `let` or `var`, you can't use `const`
+inside the loop.
+
+**while** a loop that executes a specified statement as long as the test condition evaluates to true. Set the variable outside of the loop, make an increment inside the while loop.
+
+**do while** loop it runs at least once no matter the condition.
+
+**map** method can work in a few differnt ways. IT's used to return something differnt.
+
+**for in** loop is often used for objects.
+
+#### Window Object
+
+The window object is the global object in client side of JS.
